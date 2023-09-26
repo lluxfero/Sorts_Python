@@ -1,5 +1,4 @@
 # -*- coding: cp1251 -*-
-
 def BubbleSortImp(lst):  
     for i in range(0,len(lst)-1): 
         for j in range(len(lst)-1): 
