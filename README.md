@@ -7,10 +7,10 @@ def BubbleSortImp(lst):
                 lst[j], lst[j+1] = lst[j+1], lst[j]
     return lst
 
-# проверяет, отсортирован ли список
+### проверяет, отсортирован ли список
 def is_sorted_BubFunc(lst):
     return all(lst[i] <= lst[i+1] for i in range(len(lst)-1))
-# проходит по списку и меняет местами соседние элементы, если они не в правильном порядке
+### проходит по списку и меняет местами соседние элементы, если они не в правильном порядке
 def bubble_pass_BubFunc(lst):
     if len(lst) <= 1:
         return lst
@@ -19,7 +19,7 @@ def bubble_pass_BubFunc(lst):
         if head > tail[0]: # если голова больше первого элемента хвоста, меняем их местами
             head, tail[0] = tail[0], head
         return [head] + bubble_pass_BubFunc(tail) # Возвращаем список из головы и отсортированного хвоста
-# повторяет проход по списку, пока он не будет отсортирован
+### повторяет проход по списку, пока он не будет отсортирован
 def BubbleSortFunc(lst):
     if is_sorted_BubFunc(lst): # уже отсортирован, возвращаем его
         return lst
@@ -37,7 +37,7 @@ def InsertionSortImp(lst):
         lst[j+1] = key 
     return lst
 
-# вставляет элемент в отсортированный список на правильную позицию
+### вставляет элемент в отсортированный список на правильную позицию
 def insert_InsertFunc(lst, elem):
     return [elem] if not lst else [min(lst[0], elem)] + insert_InsertFunc(lst[1:], max(lst[0], elem))
 # сортирует список, используя функцию вставки
@@ -55,13 +55,13 @@ def SelectionSortImp(lst):
         lst[i], lst[m] = lst[m], lst[i]
     return lst
 
-# находит минимальный элемент в списке
+### находит минимальный элемент в списке
 def find_min_SelFunc(lst):
     return lst[0] if len(lst) == 1 else min(lst[0], find_min_SelFunc(lst[1:]))
-# удаляет элемент из списка
+### удаляет элемент из списка
 def remove_SelFunc(lst, elem):
     return lst[1:] if lst[0] == elem else [lst[0]] + remove_SelFunc(lst[1:], elem)
-# сортирует список, используя функции поиска минимума и удаления
+### сортирует список, используя функции поиска минимума и удаления
 def SelectionSortFunc(lst):
     return [] if not lst else [find_min_SelFunc(lst)] + SelectionSortFunc(remove_SelFunc(lst, find_min_SelFunc(lst)))
 
